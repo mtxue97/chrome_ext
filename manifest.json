@@ -1,0 +1,79 @@
+{
+  "name": "我的插件", // 插件的名称
+  "description": "就是玩玩", // 插件描述
+  "version": "1.0", // 插件的版本
+  "manifest_version": 2, // 清单文件的版本
+  "icons": { // 图标，只写一个尺寸也可以
+    "16": "img/sds.png",
+    "48": "img/sds.png",
+    "128": "img/sds.png"
+  },
+  "background": { // 会一直常驻的后台JS或后台页面
+    // 2种指定方式，如果指定JS，那么会自动生成一个背景页
+    "page": "background.html"
+    // "scripts": ["js/background.js"]
+  },
+  // 权限申请
+  "permissions": [
+    "contextMenus", // 右键菜单
+    "tabs", // 标签
+    "notifications", // 通知
+    "webRequest", // web请求
+    "webRequestBlocking",
+    "storage" // 插件本地存储
+  ],
+  // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
+  "browser_action": {
+    "default_icon": "img/sds.png",
+    "default_title": "这是一个Chrome插件", // 图标悬停时的标题，可选
+    "default_popup": "popup.html"
+  },
+  // 当某些特定页面打开才显示的图标
+  /*"page_action":
+	{
+		"default_icon": "img/icon.png",
+		"default_title": "我是pageAction",
+		"default_popup": "popup.html"
+	},*/
+  // 需要直接注入页面的JS或CSS
+  "content_scripts": [
+    {
+      // 多个JS按顺序注入
+      "js": ["js/jquery-3.6.0.min.js", "js/content_script.js"],
+      //"matches": ["http://*/*", "https://*/*"],
+      "matches": ["<all_urls>"], // "<all_urls>" 表示匹配所有地址
+      // CSS的注入
+      "css": ["css/global.css"],
+      // 代码注入的时间，可选值： "document_start", "document_end", or "document_idle"，最后一个表示页面空闲时，默认document_idle
+      "run_at": "document_start"
+    }
+    // content-script可以配置多个规则
+    // {
+    //   "matches": ["*://*/*.png", "*://*/*.jpg", "*://*/*.gif", "*://*/*.bmp"],
+    //   "js": ["js/show-image-content-size.js"]
+    // }
+  ]
+//   // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
+//   "web_accessible_resources": ["js/inject.js"],
+//   // 插件主页，这个很重要，不要浪费了这个免费广告位
+//   "homepage_url": "https://www.baidu.com",
+//   // 覆盖浏览器默认页面
+//   "chrome_url_overrides": {
+//     // 覆盖浏览器默认的新标签页
+//     "newtab": "newtab.html"
+//   },
+//   // Chrome40以前的插件配置页写法
+//   "options_page": "options.html",
+//   // Chrome40以后的插件配置页写法，如果2个都写，新版Chrome只认后面这一个
+//   "options_ui": {
+//     "page": "options.html",
+//     // 添加一些默认的样式，推荐使用
+//     "chrome_style": true
+//   },
+//   // 向地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
+//   "omnibox": { "keyword": "go" },
+//   // 默认语言
+//   "default_locale": "zh_CN",
+//   // devtools页面入口，注意只能指向一个HTML文件，不能是JS文件
+//   "devtools_page": "devtools.html"
+}
