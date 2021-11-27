@@ -4,9 +4,9 @@
   "version": "1.0", // 插件的版本
   "manifest_version": 2, // 清单文件的版本
   "icons": { // 图标，只写一个尺寸也可以
-    "16": "img/sds.png",
-    "48": "img/sds.png",
-    "128": "img/sds.png"
+    "16": "img/orange.png",
+    "48": "img/orange.png",
+    "128": "img/orange.png"
   },
   "background": { // 会一直常驻的后台JS或后台页面
     // 2种指定方式，如果指定JS，那么会自动生成一个背景页
@@ -15,6 +15,7 @@
   },
   // 权限申请
   "permissions": [
+    "declarativeContent",
     "contextMenus", // 右键菜单
     "tabs", // 标签
     "notifications", // 通知
@@ -24,17 +25,17 @@
   ],
   // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
   "browser_action": {
-    "default_icon": "img/sds.png",
+    "default_icon": "img/orange.png",
     "default_title": "这是一个Chrome插件", // 图标悬停时的标题，可选
     "default_popup": "popup.html"
   },
   // 当某些特定页面打开才显示的图标
-  /*"page_action":
-	{
-		"default_icon": "img/icon.png",
-		"default_title": "我是pageAction",
-		"default_popup": "popup.html"
-	},*/
+//   "page_action":
+// 	{
+// 		"default_icon": "img/orange.png",
+// 		"default_title": "我是pageAction",
+// 		"default_popup": "popup.html"
+// 	},
   // 需要直接注入页面的JS或CSS
   "content_scripts": [
     {
@@ -52,10 +53,10 @@
     //   "matches": ["*://*/*.png", "*://*/*.jpg", "*://*/*.gif", "*://*/*.bmp"],
     //   "js": ["js/show-image-content-size.js"]
     // }
-  ]
-//   // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
-//   "web_accessible_resources": ["js/inject.js"],
-//   // 插件主页，这个很重要，不要浪费了这个免费广告位
+  ],
+  // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
+  "web_accessible_resources": ["js/inject.js"]
+//   // 插件主页
 //   "homepage_url": "https://www.baidu.com",
 //   // 覆盖浏览器默认页面
 //   "chrome_url_overrides": {

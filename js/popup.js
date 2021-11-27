@@ -1,3 +1,7 @@
+var bg = chrome.extension.getBackgroundPage();
+bg.test(); // 访问backgrouund中的函数
+// alert(bg.document.body.innerHTML); // 访问bg的DOM
+
 // 向content-script注入JS片段
 function executeScriptToCurrentTab(code)
 {
