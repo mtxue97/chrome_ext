@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function()
 	else if(location.host == 'www.baidu.com')
 	{
         console.log('baiduaaa')
-		function fuckBaiduAD()
+		function removeBaiduAD()
 		{
 			if(document.getElementById('my_custom_css')) return;
 			var temp = document.createElement('style');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function()
 			{
 				console.log('自定义CSS被移除，重新注入！');
 				if(interval) clearInterval(interval);
-				fuckBaiduAD();
+				removeBaiduAD();
 			});
 		}
 		let interval = 0;
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function()
 		{
 			$('[data-tuiguang]').parents('[data-click]').remove();
 		}
-		fuckBaiduAD();
+		removeBaiduAD();
 		// initCustomPanel();
 		// initCustomEventListen();
 	}

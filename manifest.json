@@ -15,13 +15,15 @@
   },
   // 权限申请
   "permissions": [
-    "declarativeContent",
     "contextMenus", // 右键菜单
     "tabs", // 标签
-    "notifications", // 通知
+    "notifications", // 桌面通知
     "webRequest", // web请求
     "webRequestBlocking",
-    "storage" // 插件本地存储
+    "storage", // 插件本地存储
+    "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+		"https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+    // "declarativeContent",
   ],
   // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
   "browser_action": {
@@ -55,7 +57,7 @@
     // }
   ],
   // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
-  "web_accessible_resources": ["js/inject.js"]
+  "web_accessible_resources": ["js/inject.js", "origin.png"]
 //   // 插件主页
 //   "homepage_url": "https://www.baidu.com",
 //   // 覆盖浏览器默认页面
