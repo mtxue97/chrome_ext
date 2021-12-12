@@ -10,14 +10,18 @@
 		width: 300px;
 		min-height: 100px;
 	}
-	a {margin-right: 10px;}
+	button {
+		display: block;
+		margin-bottom: 10px;
+	}
 	</style>
 </head>
 <body>
 	<h1>今天的你也要元气满满！</h1>
 	<div>
-        <a href="#" id="get_popup_title">获取popup页标题</a>
-		<a href="#" id="update_bg_color">修改页面背景色(通过executeScript实现)</a>
+		<button id="change_bg">灰度模式</button>
+        <button id="get_popup_title">获取popup页标题</button>
+		<button  id="update_bg_color">修改背景色</button>
 	</div>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="js/popup.js"></script>
