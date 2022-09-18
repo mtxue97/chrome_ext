@@ -28,9 +28,25 @@ $("#update_bg_color").click(() => {
  */
 
 $("#change_bg").click(() => {
-  changeBackgroundStyle();
+  download();
+  // changeBackgroundStyle();
 });
 function changeBackgroundStyle() {
   const code = 'document.body.style.filter = "grayscale(3)";';
   executeScriptToCurrentTab(code);
+}
+
+function download() {
+  let str = JSON.stringify({
+    "sa.ss": "hahaha",
+  });
+  chrome.downloads.download(
+    {
+      url: "data:," + str,
+      // url: "data:,Hello%2C%20World!",
+      filename: "test.yml",
+      conflictAction: "uniquify",
+    },
+    function (id) {}
+  );
 }

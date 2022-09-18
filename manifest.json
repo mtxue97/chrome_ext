@@ -15,6 +15,7 @@
   },
   // 权限申请
   "permissions": [
+    "downloads",
     "contextMenus", // 右键菜单
     "tabs", // 标签
     "notifications", // 桌面通知
@@ -42,7 +43,7 @@
   "content_scripts": [
     {
       // 多个JS按顺序注入
-      "js": ["js/content_script.js"],
+      "js": ["js/content.js"],
       //"matches": ["http://*/*", "https://*/*"],
       "matches": ["<all_urls>"], // "<all_urls>" 表示匹配所有地址
       // CSS的注入
