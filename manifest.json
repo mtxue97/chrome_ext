@@ -58,7 +58,7 @@
     // }
   ],
   // 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
-  "web_accessible_resources": ["js/inject.js", "origin.png"]
+  "web_accessible_resources": ["js/inject.js", "orange.png"]
 //   // 插件主页
 //   "homepage_url": "https://www.baidu.com",
 //   // 覆盖浏览器默认页面
